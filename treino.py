@@ -10,6 +10,7 @@ class Treino:
         self.DELTA_TIME_USE_SPELL = datetime.now()
         self.DELTA_TIME_USE_BOOTS = datetime.now()
         self.DELTA_TIME_USE_FOOD = datetime.now()
+        self.DELTA_TIME_USE_GFB = datetime.now()
 
 
     def life_ring(self):
@@ -38,6 +39,13 @@ class Treino:
             self.DELTA_TIME_USE_FOOD = datetime.now() + timedelta(minutes=4)
             print('usou food', datetime.now())
             pyautogui.press('p')
+            time.sleep(1)
+            
+    def gfb(self):
+        if (datetime.now() > self.DELTA_TIME_USE_GFB):
+            self.DELTA_TIME_USE_GFB = datetime.now() + timedelta(seconds=58)
+            print('usou gfb', datetime.now())
+            pyautogui.press('o')
             time.sleep(1)       
         
 if __name__ == '__main__':
@@ -48,6 +56,7 @@ if __name__ == '__main__':
         treino.sd()
         treino.soft()
         treino.food()
+        #treino.gfb()
         
         while (random_sleep > 0):
             time.sleep(2)
